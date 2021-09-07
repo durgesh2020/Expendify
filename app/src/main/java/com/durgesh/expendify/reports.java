@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class reports extends AppCompatActivity {
 
@@ -19,6 +20,7 @@ public class reports extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("Expendify",MODE_PRIVATE);
         Float te=pref.getFloat("total_expenses",0.0f);
         txtReport.setText("Total Expense:\nRs."+te.toString()+"/-");
+        Toast.makeText(this, "Welcome to the github repository!", Toast.LENGTH_SHORT).show();
     }
 
     public  void viewHome(View view)
@@ -26,4 +28,4 @@ public class reports extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-}       `111
+}      
