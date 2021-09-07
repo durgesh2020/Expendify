@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Expendify</string>
+    <string name="total_expense">Total Expense:Rs.</string>
+    <string name="home">Home</string>
+    <string name="budget_rs">Budget:Rs. 0.0</string>
+    <string name="add_budget">Add Budget</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="view_remaining">View Remaining</string>
+</resources>

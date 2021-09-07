@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".budget"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50sp"
+        android:src="@drawable/money"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/budget_rs"
+        android:textSize="28sp"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_primary"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:text="@string/add_budget"
+        android:textAllCaps="false"
+        android:id="@+id/btnAddBudget"
+        android:onClick="addBudget"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="50sp"
+        android:layout_marginRight="50sp"
+        android:text="@string/view_remaining"
+        android:textAllCaps="false"
+        android:id="@+id/btnViewBudget"
+        android:onClick="viewRemaining"
+        />
+</LinearLayout>

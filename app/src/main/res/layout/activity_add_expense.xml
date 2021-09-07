@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_expense"
+    android:orientation="vertical"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        app:srcCompat="@drawable/main_icon"
+        android:layout_margin="20sp"/>
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Item title"
+        android:layout_margin="20sp"/>
+
+    <EditText
+        android:id="@+id/txtCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Category"
+        android:layout_margin="20sp"/>
+
+    <EditText
+        android:id="@+id/txtComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comment"
+        android:layout_margin="20sp"/>
+
+    <EditText
+        android:id="@+id/txtAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_margin="20sp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_expense"
+        android:layout_margin="20sp"
+        android:textAllCaps="false"
+        android:onClick="addExpense"
+        />
+</LinearLayout>
