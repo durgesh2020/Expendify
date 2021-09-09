@@ -1,0 +1,27 @@
+Database design
+
+1) tblExpense 
+    -id
+    -name
+    -category
+    -comment
+    -amount
+
+    CREATE TABLE "tblExpense" (
+	"id"	INTEGER NOT NULL UNIQUE,
+	"name"	TEXT NOT NULL,
+	"category"	TEXT NOT NULL,
+	"comment"	TEXT,
+	"amount"	REAL NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);
+
+2) tblBudget
+    -id
+    -amount
+
+    CREATE TABLE "tblBudget" (
+	"id"	INTEGER NOT NULL UNIQUE,
+	"amount"	REAL NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+);

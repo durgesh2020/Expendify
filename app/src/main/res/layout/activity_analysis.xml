@@ -14,14 +14,15 @@
         android:src="@drawable/analytics"/>
 
     <TextView
+        android:id="@+id/lblAnalysis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Food: Rs. 0.0"
-        android:textSize="28sp"
-        android:textAlignment="viewStart"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
-        android:textColor="@color/design_default_color_primary"/>
+        android:text="Food: Rs. 0.0"
+        android:textAlignment="viewStart"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="28sp" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

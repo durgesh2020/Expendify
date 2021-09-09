@@ -29,8 +29,11 @@ public class add_expense extends AppCompatActivity {
         category=txtCategory.getText().toString();
         comment=txtComment.getText().toString();
         amount=Float.parseFloat(txtAmount.getText().toString());
-       // Toast.makeText(this, "Values:\n"+name+"\n"+category+"\n"+comment+"\n"+amount, Toast.LENGTH_SHORT).show();
-        SharedPreferences pref = getSharedPreferences("Expendify",MODE_PRIVATE);
+        Expense ex = new Expense(name,category,comment,amount);
+        DBHelper db=new DBHelper(this);
+        db.addExpense(ex);
+        Toast.makeText(this, "Expense recorded successfully!", Toast.LENGTH_SHORT).show();
+    /*    SharedPreferences pref = getSharedPreferences("Expendify",MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("ae_name", name);
         editor.putString("ae_category", category);
@@ -53,6 +56,6 @@ public class add_expense extends AppCompatActivity {
         Float te=0.0f;
         Toast.makeText(this, pref.getString("ae_name",null)+"\n"+pref.getString("ae_category",null)+"\n"+pref.getString("ae_comment",null)+"\n"+pref.getFloat("ae_amount",am)+"\n"+pref.getFloat("total_expenses",te), Toast.LENGTH_SHORT).show();
 
-
+*/
     }
 }
