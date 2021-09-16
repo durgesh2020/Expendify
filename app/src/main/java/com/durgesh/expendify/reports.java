@@ -17,9 +17,11 @@ public class reports extends AppCompatActivity {
         setContentView(R.layout.activity_reports);
         setTitle("Reports");
         TextView txtReport=(TextView)findViewById(R.id.txtReport);
-        SharedPreferences pref = getSharedPreferences("Expendify",MODE_PRIVATE);
-        Float te=pref.getFloat("total_expenses",0.0f);
-        txtReport.setText("Total Expense:\nRs."+te.toString()+"/-");
+       /* SharedPreferences pref = getSharedPreferences("Expendify",MODE_PRIVATE);
+        Float te=pref.getFloat("total_expenses",0.0f);*/
+        DBHelper db = new DBHelper(this);
+        float te = db.getTotalExpenses();
+        txtReport.setText("Total Expense:\nRs."+ Float.toString(te) +"/-");
         Toast.makeText(this, "Welcome to the github repository!", Toast.LENGTH_SHORT).show();
     }
 

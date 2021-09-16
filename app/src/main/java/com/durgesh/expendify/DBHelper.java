@@ -2,6 +2,7 @@ package com.durgesh.expendify;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -15,19 +16,22 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db)
     {
-        String sql_query = "CREATE TABLE \"tblExpense\" (\n" +
+        String tblExpense = "CREATE TABLE \"tblExpense\" (\n" +
                 "\t\"id\"\tINTEGER NOT NULL UNIQUE,\n" +
                 "\t\"name\"\tTEXT NOT NULL,\n" +
                 "\t\"category\"\tTEXT NOT NULL,\n" +
                 "\t\"comment\"\tTEXT,\n" +
                 "\t\"amount\"\tREAL NOT NULL,\n" +
                 "\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n" +
-                ") UNION CREATE TABLE \"tblBudget\" (\n" +
+                ")";
+
+        String tblBudget = "CREATE TABLE \"tblBudget\" (\n" +
                 "\t\"id\"\tINTEGER NOT NULL UNIQUE,\n" +
                 "\t\"amount\"\tREAL NOT NULL,\n" +
                 "\tPRIMARY KEY(\"id\" AUTOINCREMENT)\n" +
                 ");";
-        db.execSQL(sql_query);
+        db.execSQL(tblExpense);
+        db.execSQL(tblBudget);
     }
 
     @Override
@@ -42,10 +46,33 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", ex.getName());
-        values.put("category", ex.getName());
-        values.put("comment", ex.getName());
-        values.put("amount", ex.getName());
+        values.put("category", ex.getCategory());
+        values.put("comment", ex.getComment());
+        values.put("amount", ex.getAmount());
         db.insert("tblExpense",null,values);
         db.close();
+    }
+
+    float getTotalExpenses()
+    {
+        SQLiteDatabase db =this.getReadableDatabase();
+        Cursor c =  db.rawQuery( "select SUM(amount) as expenses from tblExpense;", null);
+        if (c.moveToFirst())
+        {
+            c.close();
+            return Float.parseFloat(c.getString(0));
+        }
+        c.close();
+        return 0;
+    }
+
+    boolean addBudget(float budget)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("amount", budget);
+        long status = db.insert("tblBudget",null,values);
+        db.close();
+        return status > 0;
     }
 }

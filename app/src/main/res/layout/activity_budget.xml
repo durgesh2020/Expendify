@@ -20,6 +20,13 @@
         android:textSize="28sp"
         android:textAlignment="center"
         android:textColor="@color/design_default_color_primary"/>
+    <EditText
+        android:id="@+id/txtBudget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Item title"
+        android:layout_margin="50sp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
